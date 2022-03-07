@@ -8,7 +8,7 @@
     "prettier --write --ignore-unknown"
   ],
   "*.ts?(x)": [
-    "tsc --strict --noEmit",
+    "tsc --noEmit --strict --esModuleInterop",
     "eslint --cache --no-ignore --fix",
     "prettier --write --ignore-unknown"
   ]
