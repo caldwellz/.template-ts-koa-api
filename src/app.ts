@@ -1,4 +1,5 @@
 import Koa from 'koa';
+import api from './api/route';
 import config from 'config';
 import koaBody from 'koa-body';
 import koaCompress from 'koa-compress';
@@ -50,6 +51,10 @@ class App extends Koa {
       // Continue using the default body parsing options
     }
     this.use(koaBody(koaBodyOptions));
+
+    // Finally, mount the top-level API router
+    this.use(api.routes());
+    this.use(api.allowedMethods());
   }
 }
 
